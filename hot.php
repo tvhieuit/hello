@@ -1,9 +1,10 @@
 
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $configs = include('conf.php');
         $myvars = 'sort=favorites';
         $curlSession = curl_init();
-        curl_setopt($curlSession, CURLOPT_URL, 'http://mrdroidstudiosfootball.xyz/data/scripts/get_info.php');
+        curl_setopt($curlSession, CURLOPT_URL, $configs["host"].'/scripts/get_info.php');
         curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
         curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlSession, CURLOPT_POST, 1);
